@@ -115,6 +115,5 @@ GRAPH_MODELS = {
     'group_models': True,
 }
 
-EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
-
 CART_ID = 'cart'
+
