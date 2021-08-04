@@ -1,0 +1,51 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% load thumbnail %}
+
+{% load notes_tags %}
+
+{% block title %}Блог :: {{ block.super }}{% endblock %}
+
+{% block sidebar %}{% include 'inc/_sidebar.html' %}{% endblock %}
+
+{% block content %}
+<div class="post-list">
+    <div class="row">
+        <div class="col-md-9">
+            <div class="h2">Классики</div>
+            <div class="h6 mb-3 mb-md-5 text-center"><a href="{% url 'notes:reversed_post_list' %}">Все публикации</a></div>
+            {% for post in posts %}
+                <div class="h4 ml-3"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></div>
+                <span class="date">Опубликовано {{ post.created_at|date:"Y-m-d в H:i:s" }}</span><br>
+                {% for tag in post.tag.all %}
+                    <a class="tags" href="{% url 'notes:tag_post_list' tag.slug %}">{{ tag }}</a>
+                {% if not forloop.last %} | {% endif %}
+                {% endfor %}
+                <div class="photo-list mb-3">
+                {% if post.photo %}
+                    {% thumbnail post.photo "150x150" crop="center" as thumb %}
+                    <img src="{{ thumb.url }}">
+                {% endif %}
+                    {{ post.body|truncatechars:450 }}
+                </div>
+            {% endfor %}
+        {% include 'inc/_pagination.html' with page=posts %}
+        </div>
+        <div class="col-md-3 text-md-right">
+            <div class="h4 mt-md-5 mb-md-3">Актуальное</div>
+                <div class="h6 mb-3">Последние из опубликованного</div>
+                    {% get_latest_posts as latest_posts %}
+                    {% for post in latest_posts %}
+                    <p class="latest-posts"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></p>
+                    {% endfor %}
+                <div class="h6 mt-3 mb-3">Наиболее комментируемые</div>
+                {% get_most_recommended_posts as recom_posts %}
+                {% for post in recom_posts %}
+                    <p class="recommended-posts"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></p>
+                {% endfor %}
+        </div>
+    </div>
+{% endblock %}
+</div>

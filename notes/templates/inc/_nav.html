@@ -1,0 +1,60 @@
+<nav class="navbar navbar-expand-md navbar-light bg-light" id="main-nav">
+
+  <div class="container-fluid">
+
+      <div class="h1 mr-5 font-weight-bold"><a href="{% url 'notes:portal' %}">Docent63</a></div>
+
+      <button class="navbar-toggler mb-3" data-toggle="collapse"
+      data-target="#navbarCollapse">
+      <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarCollapse">
+
+        <ul class="navbar-nav ml-auto">
+
+           <li class="nav-item mt-3 mr-lg-5">
+                <div class="h4 navbar-brand">
+                {% if to_post_list_page %}
+                    <a href="{% url 'notes:post_list' %}">
+                        <h4>К списку статей</h4>
+                    </a>
+                {% else %}
+                     <a href="{% url 'notes:portal' %}">
+                         <h4 class="d-none d-lg-block">На главную страницу сайта</h4>
+                     </a>
+                {% endif %}
+                </div>
+           </li>
+
+           <li class="nav-item mt-3 mr-3">
+                   <form action="{% url 'notes:post_search' %}" class="d-flex" method="get">
+                      <input class="form-control text-center" type="search"
+                         placeholder="Поиск по блогу" name="query" aria-label="Search">
+                      <button class="btn btn-outline-secondary" type="submit">Ввод</button>
+                   </form>
+           </li>
+
+           <li class="nav-item text-center mt-3">
+              <div class="enter">
+              {% if request.user.is_authenticated %}
+                  {% if request.user.email %}
+                   <h6>Вы {{ request.user.email }}<br>
+                  {% else %}
+                   <h6>Вы {{ request.user.username }}<br>
+                  {% endif%}
+                   <a href="{% url 'password_change' %}">cмена пароля</a> |
+                   <a href="{% url 'logout' %}">за борт</a></h6>
+               {% else %}
+                   <h6>Вы за бортом | <a href="{% url 'login' %}">на борт</a></h6>
+               {% endif %}
+             </div>
+           </li>
+
+        </ul>
+
+    </div>
+
+  </div>
+
+</nav>

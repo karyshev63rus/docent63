@@ -1,0 +1,41 @@
+[
+{
+    "model": "listings.product",
+    "pk": 1,
+    "fields": {
+        "section": 1,
+        "name": "Stratocaster shell pink",
+        "slug": "stratocaster-shell-pink",
+        "image": "products/fender-player-stratocaster-mn-shell-pink.jpg",
+        "description": "Stratocaster\r\nShell Pink",
+        "price": "975.00",
+        "available": false
+    }
+},
+{
+    "model": "listings.product",
+    "pk": 2,
+    "fields": {
+        "section": 1,
+        "name": "Stratocaster fireburst",
+        "slug": "stratocaster-fireburst",
+        "image": "products/fender-player-series-stratocaster.jpg",
+        "description": "Stratocaster\r\nFire Burst",
+        "price": "999.00",
+        "available": true
+    }
+},
+{
+    "model": "listings.product",
+    "pk": 3,
+    "fields": {
+        "section": 1,
+        "name": "Stratocaster green metalic",
+        "slug": "stratocaster-green-metalic",
+        "image": "products/fender-player-stratocaster-pf-sage-green-metallic.jpg",
+        "description": "Stratocaster\r\nGreen Met",
+        "price": "975.00",
+        "available": true
+    }
+}
+]

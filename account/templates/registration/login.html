@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+
+{% load widget_tweaks %}
+
+{% block title %}На борт{% endblock %}
+
+{% block content %}
+  <div class="h2 mt-5">На борт</div>
+
+  {% if form.errors %}
+    <div class="shadow-custom messages alert alert-danger col-lg-5 mx-auto text-center">
+      Ваше имя и/или пароль недействительны.
+      Попытайтеcь ввести их еще раз.
+    </div>
+  {% else %}
+
+    <p>Пожалуйста, используйте следующую форму для входа на сайт:<p>
+    <p>Если у вас еще нет учетной записи, то <a href="{% url 'register' %}">регистрируйтесь здесь</a></p>
+  {% endif %}
+
+   <div>
+    <form action="{% url 'login' %}" method="post">
+      {% csrf_token %}
+
+    <div class="form-group">
+      <label for="username">Логин</label>
+      {{ form.username|add_class:'form-control' }}
+    </div>
+    <div class="form-group">
+      <label for="password">Пароль</label>
+      {{ form.password|add_class:'form-control' }}
+    </div>
+
+      <input type="hidden" name="next" value="{{ next }}" />
+      <button type="submit" class="btn btn-outline-primary" name=next value="{{ next }}"
+              style="margin-top:26px; margin-bottom:52px">Войти
+      </button>
+
+    </form>
+    <p><a href="{% url 'password_reset'%}">Забыли ваш пароль?</a></p>
+    <p>Но также вы можете вернуться <a href="{% url 'notes:portal' %}">обратно на главную страницу</a> и без четной записи</p>
+  </div>
+
+{% endblock %}

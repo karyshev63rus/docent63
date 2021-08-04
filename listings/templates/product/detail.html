@@ -1,0 +1,73 @@
+{% extends 'shop.html' %}
+
+{% load thumbnail %}
+
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<div class="card shadow-custom border-0 col-lg-8 mx-auto">
+    <div class="row justify-content-center">
+        <div class="col-lg-6 my-3">
+            {% thumbnail product.image "1000x1000" crop="center" as thumb %}
+            <img src="{{ thumb.url }}" alt="" class="img-fluid rounded-0">
+        </div>
+        <div class="col-lg-6">
+            <div class="top">
+                <h2 class="mt-4 font-weight-bold text-grey">
+                    {{ product.description }}
+                </h2>
+                <div class="mt-3 font-weight-bold">
+                    {{ product.description }}
+                </div>
+                <div>
+                    {% if product.available %}
+                        <div class="alert alert-success my-3 text-center">
+                            в наличии
+                        </div>
+                    {% else %}
+                        <div class="alert alert-danger my-3 text-center">
+                            временно отсутствует
+                        </div>
+                    {% endif %}
+                    <hr>
+                    {% if product.available %}
+                    <div class="mb-4">
+                        <form action="{% url 'cart:cart_add' product.id %}" method="post">
+                            {% csrf_token %}
+                            <span class="input-group add-to-cart shadow-custom">
+                                <div class="input-group-pretend">
+                                    <span class="input-group-text font-weight-bold px-3 btn btn-block price">
+                                        &#8381; {{ product.price }}
+                                    </span>
+                                </div>
+                                <span id="minus" class="input-group-text button_minus px-4">
+                                    -
+                                </span>
+                                {{ cart_product_form.quantity }}
+                                <span id="plus" class="input-group-text button_plus px-4">
+                                    +
+                                </span>
+                                <div class="input-group-append">
+                                    <button class="btn btn-danger px-4 reduce_padding"
+                                    type="submit" data-toggle="tooltip"
+                                    data-placement="top" title="добавить в корзину">
+                                    <i class="fas fa-shopping-cart"></i>
+                                    </button>
+                                </div>
+                            </span>
+                        </form>
+                        {% else %}
+                            <span class="input-group add-to-cart shadow-custom">
+                                <div class="input-group-pretend">
+                                    <span class="input-group-text font-weight-bold px-3">
+                                        &#8381; {{ product.price }}
+                                    </span>
+                                </div>
+                      {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}

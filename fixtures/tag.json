@@ -1,0 +1,90 @@
+[
+{
+    "model": "notes.tag",
+    "pk": 10,
+    "fields": {
+        "title": "rock",
+        "slug": "rock"
+    }
+},
+{
+    "model": "notes.tag",
+    "pk": 11,
+    "fields": {
+        "title": "jazz",
+        "slug": "jazz"
+    }
+},
+{
+    "model": "notes.tag",
+    "pk": 12,
+    "fields": {
+        "title": "blues",
+        "slug": "blues"
+    }
+},
+{
+    "model": "notes.tag",
+    "pk": 13,
+    "fields": {
+        "title": "hendrix",
+        "slug": "hendrix"
+    }
+},
+{
+    "model": "notes.tag",
+    "pk": 14,
+    "fields": {
+        "title": "led_zeppelin",
+        "slug": "led_zeppelin"
+    }
+},
+{
+    "model": "notes.tag",
+    "pk": 15,
+    "fields": {
+        "title": "british",
+        "slug": "british"
+    }
+},
+{
+    "model": "notes.tag",
+    "pk": 16,
+    "fields": {
+        "title": "american",
+        "slug": "american"
+    }
+},
+{
+    "model": "notes.tag",
+    "pk": 17,
+    "fields": {
+        "title": "guitar",
+        "slug": "guitar"
+    }
+},
+{
+    "model": "notes.tag",
+    "pk": 18,
+    "fields": {
+        "title": "harp",
+        "slug": "harp"
+    }
+},
+{
+    "model": "notes.tag",
+    "pk": 19,
+    "fields": {
+        "title": "russian",
+        "slug": "russian"
+    }
+},
+{
+    "model": "notes.tag",
+    "pk": 20,
+    "fields": {
+        "title": "SRV",
+        "slug": "srv"
+    }
+}
+]

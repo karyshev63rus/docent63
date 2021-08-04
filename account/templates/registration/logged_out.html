@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block title %}За бортом{% endblock %}
+
+{% block content %}
+  <div class="h2 mt-5">Вы вне системы</div>
+  <p>Вы успешно вышли из-под своей учетной записи. Но вы можете
+    <a href="{% url 'login' %}">войти снова</a>.</p>
+{% endblock %}

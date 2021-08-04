@@ -1,0 +1,35 @@
+{% extends "base.html" %}
+
+{% load widget_tweaks %}
+
+{% block title %}Create an account{% endblock %}
+
+{% block content %}
+  <div>
+    <div class="h2 mt-5">Создайте аккаунт</div>
+
+  <p>Пожалуйста, зарегистрируйтесь, заполнив следующую форму:</p>
+  <form action="." method="post">
+
+    {% for field in user_form.visible_fields %}
+         <div class="form-group">
+              {% for error in field.errors %}
+                    <div class="shadow-custom messages alert alert-danger col-lg-5 mx-auto text-center">
+                        {{ error }}</div>
+              {% endfor %}
+             <label for="{{ field.id_for_label }}">{{ field.label }}</label>
+              {{ field|add_class:'form-control' }}
+        </div>
+    {% endfor %}
+
+    {% csrf_token %}
+
+    <button type="submit" class="btn btn-outline-primary" value="Create my account"
+            style="margin-top:26px; margin-bottom:26px">
+    Регистрация
+    </button>
+
+  </form>
+  <p class="main-bottom mb-5">Но также вы можете вернуться <a href="{% url 'notes:portal' %}">обратно на главную страницу</a> и без четной записи</p>
+  </div>
+{% endblock %}

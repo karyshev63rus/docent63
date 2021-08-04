@@ -1,0 +1,26 @@
+[
+{
+    "model": "notes.category",
+    "pk": 5,
+    "fields": {
+        "title": "Rock",
+        "slug": "rock"
+    }
+},
+{
+    "model": "notes.category",
+    "pk": 6,
+    "fields": {
+        "title": "Jazz",
+        "slug": "jazz"
+    }
+},
+{
+    "model": "notes.category",
+    "pk": 7,
+    "fields": {
+        "title": "Blues",
+        "slug": "blues"
+    }
+}
+]

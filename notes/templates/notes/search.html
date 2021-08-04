@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block sidebar %}{% include 'inc/_sidebar.html' %}{% endblock %}
+
+{% block content %}
+
+    {% for post in results %}
+    <div class="search">
+	    <h4><a href="{% url 'notes:post_detail' post.slug %}">{{ post.title }}</a></h4>
+    	<p>{{ post.body|truncatechars:150 }}</p>
+    {% empty %}
+        <div class="h3 mt-5 ml-5">К сожалению, поиск не дал полезных результатов</div>
+    </div>
+    {% endfor %}
+
+{% endblock %}

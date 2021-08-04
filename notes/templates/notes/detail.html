@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+{% load static %}
+{% load thumbnail %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block sidebar %}{% include 'inc/_sidebar.html' %}{% endblock %}
+
+{% block content %}
+
+<div class="post-detail">
+    <div class="row">
+        <div class="col-md-9">
+                <div class="h3 ml-2 mt-2">{{ post.title }}</div>
+                <p class="date ml-2">Опубликовано {{ post.created_at|date:"Y-m-d в H:i:s" }}</p>
+                <div class="photo-detail">
+                {% if post.photo %}
+                    {% thumbnail post.photo "300x300" crop="center" as thumb %}
+                    <img src="{{ thumb.url }}">
+                {% endif %}
+                </div>
+                <p>{{ post.body }}</p>
+            <div class="to-post-list-or-category my-3">
+                <a href="{% url 'notes:post_list' %}">на главную</a>
+            или
+            <a href="{% url 'notes:category_post_list' post.category.slug %}">в категорию</a>
+            </div>
+            <p>Количество комментариев: {{ total_comments }}</p>
+            {% for comment in comments %}
+                <div class="h6">
+                    Пользователь <b>{{ comment.name }}</b>
+                    оставил комментарий {{ comment.created|date:"d-M-Y в H:i" }}:
+                </div>
+                <p>{{ comment.body }}</p>
+            {% endfor %}
+            <p>Оставить комментарий (могут только зарегистрированные пользователи):</p>
+            <form action="." class="form-text" method="post">
+                {{ comment_form.as_p }}
+                {% csrf_token %}
+                <button type="submit" class="btn btn-outline-primary mb-3">
+                    Добавить комментарий</button>
+            </form>
+        {% include 'inc/_pagination.html' with page=comments %}
+        </div>
+        <div class="col-md-3">
+            <div class="h4 mt-md-5 mb-3">Похожие публикации</div>
+            {% for post in ordered_similar_posts  %}
+                <p class="same-posts"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a><br>
+                    <span class="date">{{ post.created_at }}</span><br>
+                {{ post.body|truncatechars:100 }}</p>
+                {% empty %}
+                <p>к сожалению, подобных публикаций на сайте нет</p>
+            {% endfor %}
+        </div>
+    </div>
+
+    {% endblock %}
+
+</div>

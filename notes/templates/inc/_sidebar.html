@@ -1,0 +1,15 @@
+{% load notes_tags %}
+
+<div class="sidebar">
+<div class="h4 mt-md-5">Категории</div>
+{% get_categories as categories %}
+{% for category in categories %}
+    <div class="h5"><a href="{% url 'notes:category_post_list' category.slug %}">{{ category.title }}</a></div>
+{% endfor %}
+
+<div class="h4 mt-3">Тэги</div>
+{% get_tags as tags %}
+{% for tag in tags %}
+    <div class="h6"><a href="{% url 'notes:tag_post_list' tag.slug %}">{{ tag.title }}</a></div>
+{% endfor %}
+</div>

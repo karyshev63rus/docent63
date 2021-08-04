@@ -1,0 +1,18 @@
+[
+{
+    "model": "listings.section",
+    "pk": 1,
+    "fields": {
+        "name": "Fender",
+        "slug": "fender"
+    }
+},
+{
+    "model": "listings.section",
+    "pk": 2,
+    "fields": {
+        "name": "Gibson",
+        "slug": "gibson"
+    }
+}
+]
