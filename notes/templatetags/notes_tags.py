@@ -25,3 +25,8 @@ def get_latest_posts():
 def get_most_recommended_posts():
     most_recommended_posts = Post.objects.annotate(total_comments=Count('comments')).order_by('-total_comments')[:3]
     return most_recommended_posts
+
+
+@register.inclusion_tag('inc/_space_and_footer.html')
+def get_space_and_footer(space_h=5, footer_h=5):
+    return {'space_h': f'{space_h}px', 'footer_h': f'{footer_h}px'}

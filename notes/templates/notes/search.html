@@ -1,9 +1,10 @@
 {% extends 'base.html' %}
 
-{% block sidebar %}{% include 'inc/_sidebar.html' %}{% endblock %}
+{% load notes_tags %}
 
 {% block content %}
 
+    <div class="mt-5">
     {% for post in results %}
     <div class="search">
 	    <h4><a href="{% url 'notes:post_detail' post.slug %}">{{ post.title }}</a></h4>
@@ -12,5 +13,8 @@
         <div class="h3 mt-5 ml-5">К сожалению, поиск не дал полезных результатов</div>
     </div>
     {% endfor %}
+    </div>
 
 {% endblock %}
+
+{% block footer %}{% get_space_and_footer space_h=350 footer_h=750 %}{% endblock %}

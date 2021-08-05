@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load notes_tags %}
+
 {% block title %}Главная :: {{ block.super }}{% endblock %}
 
 {% block navbar %}{% endblock %}
@@ -40,3 +42,5 @@
     </div>
 </div>
 {% endblock %}
+
+{% block footer %}{% get_space_and_footer space_h=85 footer_h=850 %}{% endblock %}

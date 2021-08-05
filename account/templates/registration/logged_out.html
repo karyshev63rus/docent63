@@ -1,5 +1,7 @@
 {% extends 'base.html' %}
 
+{% load notes_tags %}
+
 {% block title %}За бортом{% endblock %}
 
 {% block content %}
@@ -7,3 +9,16 @@
   <p>Вы успешно вышли из-под своей учетной записи. Но вы можете
     <a href="{% url 'login' %}">войти снова</a>.</p>
 {% endblock %}
+
+{#{% block space %}<div class="mh-100" style="width: 100px; height: 150px"></div>{% endblock %}#}
+{##}
+{#{% block footer %}#}
+{#  <div class="footer mt-3">#}
+{#    <div class="container-fluid">#}
+{#      <div class="mr-3 mr-lg-0 py-3">&copy; 2021 Docent63</div>#}
+{#      <div class="mh-100" style="width: 100px; height: 5000px"></div>#}
+{#    </div>#}
+{#  </div>#}
+{#{% endblock %}#}
+
+{% get_space_and_footer %}

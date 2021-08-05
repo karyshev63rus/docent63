@@ -59,9 +59,13 @@
 }
 
 .post-list .col-md-9 .h2 {
-    color: brown;
+    /*color: brown;*/
     font-size: 48px;
     text-align: center;
+}
+.post-list .col-md-9 .h2 a {
+    color: brown;
+    text-decoration: None;
 }
 .post-list .col-md-9 .h6 a {
     color: #496199;
@@ -78,7 +82,8 @@
 }
 .post-list .col-md-9 .photo-list img {
     float:left;
-    margin: 7px 17px 7px 17px;
+    /*margin: 7px 17px 7px 17px;*/
+    margin-right: 17px;
 }
 .post-list .col-md-3 .h4 {
     color: #aa6970;

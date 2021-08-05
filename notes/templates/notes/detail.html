@@ -1,5 +1,9 @@
 {% extends 'base.html' %}
+
+{% load notes_tags %}
+
 {% load static %}
+
 {% load thumbnail %}
 
 {% block title %}{{ post.title }}{% endblock %}
@@ -57,3 +61,5 @@
     {% endblock %}
 
 </div>
+
+{% block footer %}{% get_space_and_footer space_h=10 footer_h=50 %}{% endblock %}

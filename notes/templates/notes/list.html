@@ -1,10 +1,10 @@
 {% extends 'base.html' %}
 
+{% load notes_tags %}
+
 {% load static %}
 
 {% load thumbnail %}
-
-{% load notes_tags %}
 
 {% block title %}Блог :: {{ block.super }}{% endblock %}
 
@@ -14,7 +14,7 @@
 <div class="post-list">
     <div class="row">
         <div class="col-md-9">
-            <div class="h2">Классики</div>
+            <div class="h2"><a href="{% url 'notes:post_list' %}">Классики</a></div>
             <div class="h6 mb-3 mb-md-5 text-center"><a href="{% url 'notes:reversed_post_list' %}">Все публикации</a></div>
             {% for post in posts %}
                 <div class="h4 ml-3"><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></div>
@@ -23,13 +23,14 @@
                     <a class="tags" href="{% url 'notes:tag_post_list' tag.slug %}">{{ tag }}</a>
                 {% if not forloop.last %} | {% endif %}
                 {% endfor %}
-                <div class="photo-list mb-3">
+                <div class="photo-list">
                 {% if post.photo %}
                     {% thumbnail post.photo "150x150" crop="center" as thumb %}
                     <img src="{{ thumb.url }}">
                 {% endif %}
-                    {{ post.body|truncatechars:450 }}
+                    {{ post.body|truncatechars:350 }}
                 </div>
+                <hr>
             {% endfor %}
         {% include 'inc/_pagination.html' with page=posts %}
         </div>
@@ -49,3 +50,5 @@
     </div>
 {% endblock %}
 </div>
+
+{% block footer %}{% get_space_and_footer space_h=10 footer_h=65 %}{% endblock %}
