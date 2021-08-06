@@ -6,6 +6,6 @@ class CartAddProductForm(forms.Form):
     quantity = forms.IntegerField(
         min_value=1,
         widget=NumberInput(attrs={
-            'class': 'form-control text-center px-3',
+            'class': 'form-control text-center',
             'value': 1
         }))

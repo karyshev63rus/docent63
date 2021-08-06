@@ -116,4 +116,3 @@ GRAPH_MODELS = {
 }
 
 CART_ID = 'cart'
-
