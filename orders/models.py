@@ -6,7 +6,7 @@ from django.shortcuts import reverse
 
 ORDER_STATUS = [
     ('Created', 'Создан'),
-    ('Processing', 'В процессе сборки'),
+    ('Paid', 'Оплачен'),
     ('Shipped', 'Отправлен получателю'),
     ('Ready for pickup', 'Готов к выдаче'),
     ('Completed', 'Завершен')

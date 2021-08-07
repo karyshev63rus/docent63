@@ -29,9 +29,10 @@ def order_created(order_id):
                  out.getvalue(),
                  'application/pdf')
     email.send()
-    sent_telegram_messages(order_id=order.id, first_name=order.first_name,
-                           last_name=order.last_name, telephone=order.telephone,
-                           email=order.email, total_cost=order.get_total_cost())
+    sent_telegram_messages(order_id=order.id, order_status=order.status,
+                           first_name=order.first_name, last_name=order.last_name,
+                           telephone=order.telephone, email=order.email,
+                           total_cost=order.get_total_cost())
 
 
 @task
@@ -47,4 +48,8 @@ def status_change_notification(order_id):
         settings.EMAIL_HOST_USER,
         [order.email]
     )
+    sent_telegram_messages(order_id=order.id, order_status=order.status,
+                           first_name=order.first_name, last_name=order.last_name,
+                           telephone=order.telephone, email=order.email,
+                           total_cost=order.get_total_cost())
     return mail_sent
