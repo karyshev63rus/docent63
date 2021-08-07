@@ -13,4 +13,6 @@ urlpatterns = [
     path('order/<int:order_id>/pdf/', user_created_order(views.invoice_pdf),
                                         name='customer_invoice_pdf'),
     path('order/<int:order_id>/', user_created_order(views.order_detail), name='order_detail'),
+    path('order/pay/', views.order_pay, name='order_pay'),
+    path('order/pay/confirm/', views.order_pay_confirm, name='order_pay_confirm'),
 ]

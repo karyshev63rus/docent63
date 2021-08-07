@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block navbar %}{% endblock %}
+
+{% block content %}
+    <h1>ПРОИЗВЕСТИ ОПЛАТУ ЗАКАЗА?</h1>
+    <div>
+        <a href="{% url 'orders:order_pay_confirm' %}" class="text-decoration-none">
+        <button type="button" class="btn btn-success font-weight-bold shadow-custom col mb-3">
+            ДА
+        </button>
+        </a>
+        <a href="{% url 'orders:order_create' %}" class="text-decoration-none">
+        <button type="button" class="btn btn-danger font-weight-bold shadow-custom col mb-3">
+            НЕТ
+        </button>
+        </a>
+    </div>
+
+
+{% endblock %}
