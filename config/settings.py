@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     'debug_toolbar',
     'django_extensions',
     'widget_tweaks',
+    'rest_framework',
     # Local
     'notes.apps.NotesConfig',
     'listings.apps.ListingsConfig',

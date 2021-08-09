@@ -78,3 +78,10 @@ class OrderItem(models.Model):
 
     def get_cost(self):
         return self.price * self.quantity
+
+
+class Payment(models.Model):
+    link = models.CharField(max_length=100, verbose_name='ссылка на оплату заказа')
+
+    def __str__(self):
+        return f'Payment Link {self.link}'

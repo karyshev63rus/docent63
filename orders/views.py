@@ -4,7 +4,7 @@ from .models import Order, OrderItem, Product
 from .forms import OrderCreateForm
 from cart.views import get_cart, cart_clear
 from decimal import Decimal
-from .tasks import order_created, status_change_notification
+from .tasks import order_created
 from django.http import HttpResponse
 from django.template.loader import render_to_string
 import weasyprint
@@ -21,28 +21,13 @@ def order_create(request):
         create_order_items_list(cart, order)
         cart_clear(request)
         order_created.delay(order.id)
-        return redirect('orders:order_pay', order.id)
+        return redirect('orders:order_pay_link', order.id)
     order_form = get_order_form(request)
     return render(request,
                   'order_create.html',
                   {'cart': cart,
                    'order_form': order_form,
                    'transport_cost': transport_cost})
-
-
-def order_pay(request, order_id):
-    order = Order.objects.get(id=order_id)
-    return render(request,
-                  'order_pay.html',
-                  {'order': order})
-
-
-def order_pay_confirm(request, order_id):
-    order = Order.objects.get(id=order_id)
-    order.status = 'Оплачен'
-    order.save(update_fields=['status'])
-    status_change_notification.delay(order_id=order.id)
-    return render(request, 'order_created.html', {'order': order})
 
 
 def get_transport_cost(request, cart):
