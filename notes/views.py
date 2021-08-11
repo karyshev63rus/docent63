@@ -7,8 +7,9 @@ from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def portal(request):
+    posts = Post.objects.all()
     return render(request,
-                  'portal.html')
+                  'portal.html', {'posts': posts})
 
 
 def post_list(request, category_slug=None, tag_slug=None, reversed_list=False):

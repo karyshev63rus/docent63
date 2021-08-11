@@ -1,0 +1,33 @@
+{% load thumbnail %}
+
+<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+<ol class="carousel-indicators">
+<li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+<li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+</ol>
+  <div class="carousel-inner text-center">
+      {% for post in posts %}
+          {% if forloop.first %}
+            <div class="carousel-item active">
+          {% else %}
+            <div class="carousel-item">
+          {% endif %}
+            <p>
+            {% thumbnail post.photo "150x150" crop="center" as thumb %}
+            <img src="{{ thumb.url }}" alt="...">
+            </p>
+        </div>
+      {% endfor %}
+        </div>
+    </div>
+</div>
+
+<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+<span class="sr-only">Предыдущий</span>
+</a>
+<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+<span class="carousel-control-next-icon" aria-hidden="true"></span>
+<span class="sr-only">Следующий</span>
+</a>
