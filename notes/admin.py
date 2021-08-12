@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Post, Category, Tag, Comment
+from .models import Post, Category, Tag, Comment, Slide, SlideTextItem
 
 
 @admin.register(Post)
@@ -26,3 +26,15 @@ class CommentAdmin(admin.ModelAdmin):
     list_display = ('name', 'email', 'post', 'created')
     list_filter = ('active', 'created', 'updated')
     search_fields = ('name', 'email', 'body')
+
+
+class SlideTextItemInline(admin.TabularInline):
+    model = SlideTextItem
+
+
+@admin.register(Slide)
+class SlideAdmin(admin.ModelAdmin):
+    list_display = ('title', 'subtitle', 'text', 'link', 'picture')
+    list_editable = ('text', 'subtitle', 'link')
+
+    inlines = [SlideTextItemInline]
