@@ -21,9 +21,7 @@ def order_create(request):
         create_order_items_list(cart, order)
         cart_clear(request)
         order_created.delay(order.id)
-        return render(request,
-                      'order_created.html',
-                      {'order': order})
+        return redirect('orders:order_pay_link', order.id)
     order_form = get_order_form(request)
     return render(request,
                   'order_create.html',

@@ -70,3 +70,24 @@ class Comment(models.Model):
 
     def __str__(self):
         return f"Comment by {self.name} on {self.post}"
+
+
+class Slide(models.Model):
+    title = models.CharField(max_length=50, blank=True, verbose_name='заголовок')
+    subtitle = models.CharField(max_length=50, blank=True, verbose_name='подзаголовок')
+    text = models.CharField(max_length=50, blank=True, verbose_name='текст')
+    picture = models.ImageField(upload_to='slides/', blank=True, verbose_name='слайд')
+    link = models.CharField(max_length=50, blank=True, verbose_name='сссылка')
+
+    class Meta:
+        ordering = ('text',)
+        verbose_name = 'слайд'
+        verbose_name_plural = 'слайды'
+
+    def __str__(self):
+        return self.title
+
+
+class SlideTextItem(models.Model):
+    textItem = models.ForeignKey(Slide, related_name='items', on_delete=models.CASCADE, verbose_name='пункт')
+    text = models.CharField(max_length=50, blank=True, verbose_name='позиция')

@@ -1,14 +1,15 @@
 from django.shortcuts import render, redirect
 from django.db.models import Count
-from .models import Post
+from .models import Post, Slide
 from .forms import CommentForm
 from django.contrib.postgres.search import SearchVector
 from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 def portal(request):
+    slides = Slide.objects.all()
     return render(request,
-                  'portal.html')
+                  'portal.html', {'slides': slides})
 
 
 def post_list(request, category_slug=None, tag_slug=None, reversed_list=False):
