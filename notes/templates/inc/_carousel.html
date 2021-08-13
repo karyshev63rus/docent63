@@ -13,13 +13,13 @@
               {% else %}
                 <div class="carousel-item">
               {% endif %}
-                    <div class="card bg-info text-white" style="height: 420px; width: 92vw; align-items: center">
+                    <div class="card bg-info text-white" style="border: 0px; height: 400px; width: 92vw; align-items: center">
                         {% if slide.picture %}
                             <img src="{{ slide.picture.url }}" alt="...">
                         {% endif %}
                       <div class="card-img-overlay">
                         <h4 class="card-title">{{ slide.title }}</h4>
-                        <h1 class="card-title font-weight-bold" style="font-size: 64px"><a href="{{ slide.link }}" style="color: #ddffdd">{{ slide.subtitle }}</a></h1>
+                        <h1 class="card-title font-weight-bold" style="font-size: 60px"><a href="{{ slide.link }}" style="color: #ddffdd">{{ slide.subtitle }}</a></h1>
                         {% for item in slide.items.values %}
                             <h2>{{ item.text }}</h2>
                         {% endfor %}
@@ -30,10 +30,12 @@
             </div>
         </div>
     </div>
-  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="d-none d-lg-block carousel-control-prev-icon" aria-hidden="true"></span>
     <span class="sr-only">Предыдущий</span>
   </a>
   <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="d-none d-lg-block carousel-control-next-icon" aria-hidden="true"></span>
     <span class="sr-only">Следующий</span>
   </a>
 </div>
