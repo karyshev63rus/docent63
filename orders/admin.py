@@ -1,6 +1,6 @@
 from .tasks import status_change_notification
 from django.contrib import admin
-from .models import Order, OrderItem, Product
+from .models import Order, OrderItem, Product, Payment
 import xlsxwriter
 import datetime
 from django.http import HttpResponse
@@ -114,3 +114,8 @@ class OrderAdmin(admin.ModelAdmin):
                status_shipped,
                status_ready_for_pickup,
                status_completed]
+
+
+@admin.register(Payment)
+class PaymentAdmin(admin.ModelAdmin):
+    list_display = ['link']

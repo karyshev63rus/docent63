@@ -83,5 +83,9 @@ class OrderItem(models.Model):
 class Payment(models.Model):
     link = models.CharField(max_length=100, verbose_name='ссылка на оплату заказа')
 
+    class Meta:
+        verbose_name = 'ссылка на оплату'
+        verbose_name_plural = 'ссылки на оплату'
+
     def __str__(self):
         return f'Payment Link {self.link}'
