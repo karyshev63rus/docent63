@@ -3,8 +3,12 @@
 {% block navbar %}{% endblock %}
 
 {% block content %}
-    <h1>ПРОИЗВЕСТИ ОПЛАТУ ЗАКАЗА?</h1>
-    <h3>Заказ # {{ order.id }} - Сумма: {{ order.get_total_cost }}</h3>
+
+  <div class="order-pay">
+
+    <div class="h1 my-3 text-center">ПРОИЗВЕСТИ ОПЛАТУ ЗАКАЗА?</div>
+    <div class="h2 mb-5 text-center">Внимание! <br>Это симуляция процесса оплаты!</div>
+    <div class="h3 mb-5 text-center">Заказ # {{ order.id }} <br>Сумма: &#8381; {{ order.get_total_cost }}</div>
     <div>
         <a href="{% url 'orders:order_pay_confirm' order.id %}" class="text-decoration-none">
         <button type="button" class="btn btn-success font-weight-bold shadow-custom col mb-3">
@@ -17,5 +21,7 @@
         </button>
         </a>
     </div>
+
+  </div>
 
 {% endblock %}
