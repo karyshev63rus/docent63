@@ -38,6 +38,10 @@
 .portal-content .col-md-9 .h2 a {
     color: grey;
 }
+.portal-content .col-md-9 .h3 {
+    color: #5f7ad2;
+    font-weight: bold;
+}
 .portal-content .col-md-9 .mail-address {
     font-size: 1.5rem;
     color: #8B0000;
