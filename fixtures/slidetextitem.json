@@ -1,0 +1,114 @@
+[
+{
+    "model": "notes.slidetextitem",
+    "pk": 6,
+    "fields": {
+        "textItem": 1,
+        "text": "все операции CRUD"
+    }
+},
+{
+    "model": "notes.slidetextitem",
+    "pk": 7,
+    "fields": {
+        "textItem": 1,
+        "text": "поиск по блогу"
+    }
+},
+{
+    "model": "notes.slidetextitem",
+    "pk": 8,
+    "fields": {
+        "textItem": 1,
+        "text": "аутентификация"
+    }
+},
+{
+    "model": "notes.slidetextitem",
+    "pk": 9,
+    "fields": {
+        "textItem": 2,
+        "text": "фильтры товаров"
+    }
+},
+{
+    "model": "notes.slidetextitem",
+    "pk": 10,
+    "fields": {
+        "textItem": 2,
+        "text": "операции с корзиной"
+    }
+},
+{
+    "model": "notes.slidetextitem",
+    "pk": 11,
+    "fields": {
+        "textItem": 2,
+        "text": "платежи"
+    }
+},
+{
+    "model": "notes.slidetextitem",
+    "pk": 12,
+    "fields": {
+        "textItem": 2,
+        "text": "CRM"
+    }
+},
+{
+    "model": "notes.slidetextitem",
+    "pk": 13,
+    "fields": {
+        "textItem": 6,
+        "text": "postgresql"
+    }
+},
+{
+    "model": "notes.slidetextitem",
+    "pk": 14,
+    "fields": {
+        "textItem": 6,
+        "text": "bootstrap"
+    }
+},
+{
+    "model": "notes.slidetextitem",
+    "pk": 15,
+    "fields": {
+        "textItem": 6,
+        "text": "wsgi+nginx"
+    }
+},
+{
+    "model": "notes.slidetextitem",
+    "pk": 16,
+    "fields": {
+        "textItem": 6,
+        "text": "aws"
+    }
+},
+{
+    "model": "notes.slidetextitem",
+    "pk": 17,
+    "fields": {
+        "textItem": 4,
+        "text": "@docent63rus"
+    }
+},
+{
+    "model": "notes.slidetextitem",
+    "pk": 18,
+    "fields": {
+        "textItem": 4,
+        "text": ""
+    }
+},
+{
+    "model": "notes.slidetextitem",
+    "pk": 19,
+    "fields": {
+        "textItem": 4,
+        "text": ""
+    }
+}
+]

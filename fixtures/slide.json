@@ -1,0 +1,57 @@
+[
+{
+    "model": "notes.slide",
+    "pk": 1,
+    "fields": {
+        "title": "ПРОЕКТ",
+        "subtitle": "Блог",
+        "text": "C",
+        "picture": "",
+        "link": "https://docent63.ru/posts/"
+    }
+},
+{
+    "model": "notes.slide",
+    "pk": 2,
+    "fields": {
+        "title": "ПРОЕКТ",
+        "subtitle": "Магазин",
+        "text": "D",
+        "picture": "",
+        "link": "https://docent63.ru/listings/"
+    }
+},
+{
+    "model": "notes.slide",
+    "pk": 4,
+    "fields": {
+        "title": "КОНТАКТЫ",
+        "subtitle": "ТлгрМ",
+        "text": "B",
+        "picture": "",
+        "link": "https://t.me/docent63rus"
+    }
+},
+{
+    "model": "notes.slide",
+    "pk": 6,
+    "fields": {
+        "title": "ТЕХНОЛОГИИ",
+        "subtitle": "Django",
+        "text": "A",
+        "picture": "",
+        "link": "https://django.fun/"
+    }
+},
+{
+    "model": "notes.slide",
+    "pk": 7,
+    "fields": {
+        "title": "",
+        "subtitle": "ДемоСайт",
+        "text": "",
+        "picture": "",
+        "link": ""
+    }
+}
+]
