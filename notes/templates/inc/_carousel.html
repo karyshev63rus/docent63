@@ -1,47 +1,40 @@
-{% load static %}
-
-{% load thumbnail %}
-
 <div class="row justify-content-center">
-<div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
-<ol class="carousel-indicators">
-<li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
-<li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
-<li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
-<li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
-<li data-target="#carouselExampleCaptions" data-slide-to="4">D</li>
-</ol>
-  <div class="carousel-inner text-center">
-      {% for slide in slides %}
-          {% if forloop.first %}
-            <div class="carousel-item active">
-          {% else %}
-            <div class="carousel-item">
-          {% endif %}
-                <div class="card bg-info text-white" style="height: 380px; width: 900px; align-items: center">
-                    {% if slide.picture %}
-                        <img src="{{ slide.picture.url }}" alt="...">
-                    {% endif %}
-                  <div class="card-img-overlay">
-                    <h4 class="card-title">{{ slide.title }}</h4>
-                    <h1 class="card-title font-weight-bold" style="font-size: 64px"><a href="{{ slide.link }}" style="color: #ddffdd">{{ slide.subtitle }}</a></h1>
-                    {% for item in slide.items.values %}
-                        <h2>{{ item.text }}</h2>
-                    {% endfor %}
-                  </div>
+    <div id="carouselExampleCaptions" class="carousel slide" data-ride="carousel">
+    <ol class="carousel-indicators">
+        <li data-target="#carouselExampleCaptions" data-slide-to="0" class="active"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="1"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="2"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="3"></li>
+        <li data-target="#carouselExampleCaptions" data-slide-to="4">D</li>
+    </ol>
+      <div class="carousel-inner text-center">
+          {% for slide in slides %}
+              {% if forloop.first %}
+                <div class="carousel-item active">
+              {% else %}
+                <div class="carousel-item">
+              {% endif %}
+                    <div class="card bg-info text-white" style="height: 380px; width: 900px; align-items: center">
+                        {% if slide.picture %}
+                            <img src="{{ slide.picture.url }}" alt="...">
+                        {% endif %}
+                      <div class="card-img-overlay">
+                        <h4 class="card-title">{{ slide.title }}</h4>
+                        <h1 class="card-title font-weight-bold" style="font-size: 64px"><a href="{{ slide.link }}" style="color: #ddffdd">{{ slide.subtitle }}</a></h1>
+                        {% for item in slide.items.values %}
+                            <h2>{{ item.text }}</h2>
+                        {% endfor %}
+                      </div>
+                    </div>
                 </div>
+          {% endfor %}
             </div>
-      {% endfor %}
         </div>
     </div>
+  <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
+    <span class="sr-only">Предыдущий</span>
+  </a>
+  <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
+    <span class="sr-only">Следующий</span>
+  </a>
 </div>
-</div>
-
-<a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-slide="prev">
-<span class="carousel-control-prev-icon" aria-hidden="true"></span>
-<span class="sr-only">Предыдущий</span>
-</a>
-<a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-slide="next">
-<span class="carousel-control-next-icon" aria-hidden="true"></span>
-<span class="sr-only">Следующий</span>
-</a>
