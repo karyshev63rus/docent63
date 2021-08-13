@@ -136,3 +136,18 @@
     color: #9e9e9e;
     background-color: #eff7fa;
 }
+
+.order-pay .h1 {
+    color: gray;
+    font-weight: bold;
+}
+
+.order-pay .h2 {
+    color: orangered;
+    font-weight: bold;
+}
+
+.order-pay .h3 {
+    color: #c51c35;
+    font-weight: bold;
+}
