@@ -34,7 +34,7 @@ class SlideTextItemInline(admin.TabularInline):
 
 @admin.register(Slide)
 class SlideAdmin(admin.ModelAdmin):
-    list_display = ('title', 'subtitle', 'text', 'link', 'picture')
-    list_editable = ('text', 'subtitle', 'link')
+    list_display = ('title', 'subtitle', 'text', 'link', 'target', 'picture')
+    list_editable = ('text', 'subtitle', 'link', 'target')
 
     inlines = [SlideTextItemInline]

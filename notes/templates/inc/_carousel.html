@@ -9,17 +9,17 @@
       <div class="carousel-inner text-center">
           {% for slide in slides %}
               {% if forloop.first %}
-                <div class="carousel-item active">
+                <div class="carousel-item active" data-interval="2500">
               {% else %}
-                <div class="carousel-item">
+                <div class="carousel-item" data-interval="2500">
               {% endif %}
-                    <div class="card bg-info text-white" style="border: 0px; height: 400px; width: 92vw; align-items: center">
+                    <div class="card bg-light text-white" style="border: 0px; height: 400px; width: 92vw; align-items: center">
                         {% if slide.picture %}
                             <img src="{{ slide.picture.url }}" alt="...">
                         {% endif %}
                       <div class="card-img-overlay">
                         <h4 class="card-title">{{ slide.title }}</h4>
-                        <h1 class="card-title font-weight-bold" style="font-size: 60px"><a href="{{ slide.link }}" style="color: #ddffdd">{{ slide.subtitle }}</a></h1>
+                        <h1 class="card-title font-weight-bold" style="font-size: 60px"><a href="{{ slide.link }}" target="{{ slide.target }}" style="color: #ddffdd">{{ slide.subtitle }}</a></h1>
                         {% for item in slide.items.values %}
                             <h2>{{ item.text }}</h2>
                         {% endfor %}

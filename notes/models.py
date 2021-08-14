@@ -77,7 +77,8 @@ class Slide(models.Model):
     subtitle = models.CharField(max_length=50, blank=True, verbose_name='подзаголовок')
     text = models.CharField(max_length=50, blank=True, verbose_name='текст')
     picture = models.ImageField(upload_to='slides/', blank=True, verbose_name='слайд')
-    link = models.CharField(max_length=50, blank=True, verbose_name='сссылка')
+    link = models.CharField(max_length=50, blank=True, verbose_name='ссылка')
+    target = models.CharField(max_length=50, blank=True, verbose_name='вкладка')
 
     class Meta:
         ordering = ('text',)
